@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 import { TfiUser } from "react-icons/tfi";
 import { FaUserFriends } from "react-icons/fa";
 
-function AdminNavbar() {
+function AdminNavbar({login}) {
+  
   useEffect(() => {
     
   }, []);
@@ -55,7 +56,9 @@ function AdminNavbar() {
             <TfiUser />
           </span>
           <p className="text-lg capitalize text-white ">
-            {localStorage.getItem("email")}
+            {
+            login?window.localStorage.getItem("email"):<Link to="/">Login</Link>
+            }
           </p>
         </div>
       </nav>

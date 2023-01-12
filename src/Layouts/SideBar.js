@@ -13,7 +13,7 @@ function SideBar() {
   }, []);
   return (
     <div>
-      <div className="flex bg-[#f1eeee] ml-5 rounded-lg py-4 flex-nowrap h-[70%] mt-28 fixed flex-col w-60 z-10">
+      <div className="flex bg-[#f1eeee]  rounded-lg py-4 flex-nowrap h-[80%] mt-28 fixed flex-col w-60 z-10">
         <Link to="/home">
           <div className=" flex rounded-lg  px-5 text-2xl bg-[#008DB9] w-50 ml-5 mr-5  hover:bg-[#43a1d6] hover:shadow-sm hover:shadow-sky-700">
             <span>

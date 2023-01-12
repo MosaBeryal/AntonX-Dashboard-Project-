@@ -3,10 +3,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaUserCircle } from "react-icons/fa";
 import { useQuery } from "react-query";
 import Axios from "axios";
-import Spinner from "../components/Spinner";
+import Spinner from "../Components/Spinner";
 import { useDispatch } from "react-redux";
 import { follow } from "../store/FollowingSlice";
-import ApiError from "../components/ApiError";
+import ApiError from "../Components/ApiError";
 
 function Users() {
   
@@ -31,7 +31,7 @@ function Users() {
       ) : (
         data?.map((Users) => (
           <div key={Users.id}>
-            <div className="flex items-center w-52 justify-center mt-7  h-52 overflow-hidden rounded-lg">
+            <div className="flex items-center w-52 justify-center mt-7 h-56 overflow-hidden rounded-lg">
               <div className="max-w-xs">
                 <div className=" bg-[#f1eeee] shadow-xl rounded-lg py-3">
                   <div className=" p-2 flex justify-center">

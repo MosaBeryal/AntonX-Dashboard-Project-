@@ -9,16 +9,17 @@ export default function Slider1() {
     <div>
       <div className="carousel carousel-center slide  p-4 space-x-4  rounded-box">
   <div className="carousel-item">
-    <img src={img1} className="rounded-box" width="700px" />
+    <img src={img1} className="rounded-box" width="700px" alt='img1' />
   </div> 
   <div className="carousel-item">
-    <img src={img2} className="rounded-box" width="700px" />
+    <img src={img2} className="rounded-box" width="700px" alt='img2' />
   </div> 
   <div className="carousel-item">
-    <img src={img3} className="rounded-box" width="700px" />
+    <img src={img3} className="rounded-box" width="700px" alt='img3'
+    />
   </div> 
   <div className="carousel-item">
-    <img src={img4} className="rounded-box" width="700px" />
+    <img src={img4} className="rounded-box" width="700px" alt='img4' />
   </div> 
   
 </div>

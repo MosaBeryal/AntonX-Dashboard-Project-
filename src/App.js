@@ -2,27 +2,29 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import LoginPage from "./components/LoginPage";
+import LoginPage from "./Components/LoginPage";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Slides from "./pages/Slides";
 import Following from "./pages/Following";
 import Posts from "./pages/Posts";
-import SideBar from "./components/SideBar";
-import AdminNavbar from "./components/AdminNavbar";
+import SideBar from "./Layouts/SideBar";
+import AdminNavbar from "./Layouts/AdminNavbar";
 import Users from "./pages/Users";
 import LikedPosts from "./pages/LikedPosts";
 import ErrorPage from "./pages/ErrorPage";
 import { QueryClient, QueryClientProvider } from "react-query";
-import Footer from "./components/Footer";
-import RegistrationForm from "./components/RegistrationForm";
+import Footer from "./Layouts/Footer";
+import RegistrationForm from "./Components/RegistrationForm";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 const App = () => {
   const client = new QueryClient();
 
   const [login, setLogin] = useState(false);
+  
   useEffect(() => {}, [login]);
+
   return (
     <div>
       <Provider store={store}>
@@ -32,18 +34,18 @@ const App = () => {
               <div className="w-[20%]">
                 {window.localStorage.getItem("login") ? (
                   <>
-                    <AdminNavbar />
+                    <AdminNavbar login={login} />
                     <SideBar />
                     <Footer />
                   </>
                 ) : (
                   <>
-                    <AdminNavbar />
+                    <AdminNavbar login={login}/>
                     <Footer />
                   </>
                 )}
               </div>
-              <div className="w-80%">
+              <div className="w-[80%]">
                 <Routes>
                     <Route
                       path="/home"
@@ -52,7 +54,7 @@ const App = () => {
               
                     <Route
                       path="/"
-                      element={<LoginPage setLogin={setLogin} />}
+                      element={<LoginPage setLogin={setLogin}  />}
                     ></Route>
                 
                   <Route

@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import Axios from "axios";
 import { AiFillLike } from "react-icons/ai";
-import Spinner from "../components/Spinner";
+import Spinner from "../Components/Spinner";
 import { like } from "../store/LikedPostsSlice";
 import { useDispatch } from "react-redux";
 
