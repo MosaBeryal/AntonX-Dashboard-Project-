@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
-function LoginPage() {
+function RegistrationForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -89,7 +89,7 @@ function LoginPage() {
                           className=" bg-[#008DB9] text-white rounded-md px-2 py-1 hover:bg-[#43a1d6]"
                           onClick={handleSubmit}
                         >
-                          Submit
+                        Submit
                         </button>
                         <ToastContainer />
                       </div>
@@ -99,7 +99,7 @@ function LoginPage() {
                             type="submit"
                             className=" bg-[#008DB9] text-white rounded-md px-2 py-1 hover:bg-[#43a1d6]"
                           >
-                            SignIn
+                            login
                           </button>
                         </Link>
                         <ToastContainer />
@@ -116,4 +116,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegistrationForm;

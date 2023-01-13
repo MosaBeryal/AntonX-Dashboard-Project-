@@ -1,21 +1,18 @@
 import React from "react";
 import AntonX from "../assets/img/AntonX.png";
-import { loginSchema } from "../Validations/LoginFormValidation";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
 
-function LoginPage({setLogin}) {
-  
+function LoginPage({ setLogin }) {
   useEffect(() => {
-    if (window.localStorage.getItem("login")===true){
+    if (window.localStorage.getItem("login") === true) {
       navigate("/home");
     }
   }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
 
   const userEmail = localStorage.getItem("email")
     ? localStorage.getItem("email")
@@ -25,24 +22,37 @@ function LoginPage({setLogin}) {
     : "admin";
   const navigate = useNavigate();
 
-
   function handleSubmit(e) {
     e.preventDefault();
-    if (email === userEmail && password === userPassword) {
+    if(email==="")
+    {
+      toast.error("enter your email")
+      // alert("enter email")
+    }
+    else if(password==="")
+    {
+      toast.error("enter your password")
+      // alert("enter password")
+    }
+    else if (email === userEmail && password === userPassword) {
       toast.success("successfully loged in", {
         position: "bottom-right",
       });
-      localStorage.setItem("login",true)
+      localStorage.setItem("login", true);
       navigate("/home");
-      setLogin(true)
+      setLogin(true);
     } else {
-      toast.error("Invalid email or password",{position:"bottom-right",autoClose:1000});
+      toast.error("Invalid email or password", {
+        position: "bottom-right",
+        autoClose: 1000,
+      });
+      
     }
   }
-  
 
   return (
     <div>
+    <ToastContainer/>
       <div className="min-h-screen  py-6 flex flex-col sm:py-12 rounded ml-36 mt-10 bg-[white] fixed bg-[white]">
         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
           <div className="absolute inset-0 bg-gradient-to-r from-black bg-[#008DB9] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
@@ -70,7 +80,7 @@ function LoginPage({setLogin}) {
                         htmlFor="email"
                         className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                       >
-                        Email 
+                        Email
                       </label>
                     </div>
                     <div className="relative">
@@ -100,7 +110,7 @@ function LoginPage({setLogin}) {
                         >
                           SignIn
                         </button>
-                        <ToastContainer />
+                        
                       </div>
                       <Link to="/registration">
                         <div className="relative">
@@ -108,9 +118,8 @@ function LoginPage({setLogin}) {
                             type="submit"
                             className=" bg-[black] text-white rounded-md px-2 py-1 hover:bg-[#43a1d6]"
                           >
-                            SignUp
+                            Register
                           </button>
-                          <ToastContainer />
                         </div>
                       </Link>
                     </div>

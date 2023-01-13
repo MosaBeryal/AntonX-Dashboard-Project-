@@ -10,7 +10,6 @@ function ProtectedRoutes({ component }) {
     let login = localStorage.getItem("login");
     if (!login) {
       navigate("/");
-     
     }
   });
 

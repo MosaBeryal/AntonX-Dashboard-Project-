@@ -1,5 +1,4 @@
 import React from "react";
-import 'react-toastify/dist/ReactToastify.css';
 import { FaUserCircle } from "react-icons/fa";
 import { useQuery } from "react-query";
 import Axios from "axios";
@@ -9,6 +8,7 @@ import { follow } from "../store/FollowingSlice";
 import ApiError from "../Components/ApiError";
 
 function Users() {
+
   
   const { data, isLoading ,isError } = useQuery(["users"], () => {
     return Axios.get(`${process.env.REACT_APP_BASE_URL}/users`).then(
@@ -20,9 +20,13 @@ function Users() {
   const handleFollowers = (User) => {
     dispatch(follow(User));
   };
-  
+
+// const handleFollowerText=(User)=>
+//   {
+//     setText("followed")
+//   }
   return (
-    <div className="ml-32 mt-24 w-[850px] flex flex-wrap flex-row justify-evenly">
+    <div className="ml-32 mt-24 w-[800px] flex flex-wrap flex-row justify-evenly">
     {
       isError?<ApiError/>:""
     }
@@ -31,7 +35,7 @@ function Users() {
       ) : (
         data?.map((Users) => (
           <div key={Users.id}>
-            <div className="flex items-center w-52 justify-center mt-7 h-56 overflow-hidden rounded-lg">
+            <div className="flex items-center w-64 justify-center mt-7 h-56 overflow-hidden rounded-lg">
               <div className="max-w-xs">
                 <div className=" bg-[#f1eeee] shadow-xl rounded-lg py-3">
                   <div className=" p-2 flex justify-center">
@@ -55,7 +59,7 @@ function Users() {
                         }}
                       >
                         {" "}
-                        Follow
+                      Follow
                       </button>
                       
                     </div>

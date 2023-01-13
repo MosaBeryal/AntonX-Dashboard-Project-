@@ -5,14 +5,14 @@ function LikedPosts() {
   const data = useSelector((state) => state.likedPosts);
   return (
     <div>
-      <div className="ml-32 mt-28 w-[900px] flex flex-wrap flex-row justify-evenly ">
+      <div className="ml-28 mt-28 w-[800px] flex flex-wrap flex-row justify-evenly ">
         <div className="text-2xl capitalize">
           {data.length === 0 && "No liked posts"}
         </div>
         {data.map((posts) => (
           <div
             key={posts.id}
-            className="w-72 p-6 rounded-lg shadow-lg  bg-[#f1eeee] max-w-sm mt-4"
+            className="w-64 p-6 rounded-lg shadow-lg  bg-[#f1eeee] max-w-sm mt-4"
           >
             {" "}
             <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">

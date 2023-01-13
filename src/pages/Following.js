@@ -32,7 +32,7 @@ function Following() {
     
       {data.map((Users) => (
         <div key={Users.id}>
-          <div className="flex items-center  justify-center mt-7  h-52">
+          <div className="flex items-center  justify-center mt-7 w-64 ">
             <div className="max-w-xs">
               <div className=" bg-[#f1eeee] shadow-xl rounded-lg py-3">
                 <div className=" p-2 flex justify-center">
