@@ -3,6 +3,7 @@ import AntonX from "../assets/img/AntonX.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function RegistrationForm() {
   const [email, setEmail] = useState("");
@@ -12,12 +13,12 @@ function RegistrationForm() {
   function handleSubmit(e) {
     e.preventDefault();
     if (email === "") {
-      toast.error("Please Enter your email", {
+      toast.info("Please Enter your email", {
         position: "bottom-right",
         autoClose: 1000,
       });
     } else if (password === "") {
-      toast.error("Enter password", {
+      toast.info("Enter password", {
         position: "bottom-right",
         autoClose: 1000,
       });

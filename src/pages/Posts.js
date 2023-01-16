@@ -17,10 +17,10 @@ function Posts() {
   const handleLike = (posts) => {
     dispatch(like(posts));
   };
-
+  
   return (
-    <div>
-      <div className="ml-32  w-[800px] flex flex-wrap flex-row justify-around mt-24">
+    <div >
+      <div className="ml-32  w-[800px] flex flex-wrap  justify-evenly mt-24 ">
         {isError ? <ApiError /> : ""}
         {isLoading ? (
           <Spinner />

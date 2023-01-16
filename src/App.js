@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./Components/LoginPage";
 import { Provider } from "react-redux";
@@ -19,20 +19,22 @@ import RegistrationForm from "./Components/RegistrationForm";
 import ProtectedRoutes from "./utils/ProtectedRoutes";
 
 const App = () => {
+  
   const client = new QueryClient();
 
   const [login, setLogin] = useState(false);
   
-  useEffect(() => {}, [login]);
+  useEffect(() => {
+  }, [login]);
 
   return (
-    <div>
+    <div >
       <Provider store={store}>
         <QueryClientProvider client={client}>
           <Router>
             <div className="flex w-[100%]">
               <div className="w-[20%]">
-                {window.localStorage.getItem("login") ? (
+                {window.localStorage.getItem("login")? (
                   <>
                     <AdminNavbar login={login} />
                     <SideBar />
@@ -49,8 +51,8 @@ const App = () => {
                 <Routes>
                     <Route
                       path="/home"
-                      element={<ProtectedRoutes component={Dashboard} />}
-                    ></Route>
+                      element={<ProtectedRoutes component={Dashboard}/>}
+                    ></Route>:
               
                     <Route
                       path="/"
@@ -63,7 +65,7 @@ const App = () => {
                   ></Route>
                   <Route
                     path="/posts"
-                    element={<ProtectedRoutes component={Posts} />}
+                    element={<ProtectedRoutes component={Posts}  />}
                   ></Route>
                   <Route
                     path="/following"
@@ -71,7 +73,7 @@ const App = () => {
                   ></Route>
                   <Route
                     path="/users"
-                    element={<ProtectedRoutes component={Users} />}
+                    element={<ProtectedRoutes component={Users}  />}
                   ></Route>
                   <Route
                     path="/likedposts"

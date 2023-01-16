@@ -2,7 +2,8 @@ import React from "react";
 import AntonX from "../assets/img/AntonX.png";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function LoginPage({ setLogin }) {
   useEffect(() => {
@@ -24,19 +25,17 @@ function LoginPage({ setLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if(email==="")
-    {
-      toast.error("enter your email")
-      // alert("enter email")
-    }
-    else if(password==="")
-    {
-      toast.error("enter your password")
-      // alert("enter password")
-    }
-    else if (email === userEmail && password === userPassword) {
-      toast.success("successfully loged in", {
+    if (email === "") {
+      toast.info("enter your email", {
         position: "bottom-right",
+        autoClose: "1000",
+      });
+    } else if (password === "") {
+      toast.info("enter your password", { position: "bottom-right" });
+    } else if (email === userEmail && password === userPassword) {
+      toast.success("successfully logged in", {
+        position: "bottom-right",
+        autoClose: "1000",
       });
       localStorage.setItem("login", true);
       navigate("/home");
@@ -46,14 +45,13 @@ function LoginPage({ setLogin }) {
         position: "bottom-right",
         autoClose: 1000,
       });
-      
     }
   }
 
   return (
     <div>
-    <ToastContainer/>
-      <div className="min-h-screen  py-6 flex flex-col sm:py-12 rounded ml-36 mt-10 bg-[white] fixed bg-[white]">
+      <ToastContainer />
+      <div className="min-h-screen  py-6 flex flex-col sm:py-12 rounded ml-36 mt-10 fixed bg-[white]">
         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
           <div className="absolute inset-0 bg-gradient-to-r from-black bg-[#008DB9] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
           <div className="relative px-4 py-10 bg-[#f1eeee] shadow-lg sm:rounded-3xl sm:p-20">
@@ -110,7 +108,6 @@ function LoginPage({ setLogin }) {
                         >
                           SignIn
                         </button>
-                        
                       </div>
                       <Link to="/registration">
                         <div className="relative">

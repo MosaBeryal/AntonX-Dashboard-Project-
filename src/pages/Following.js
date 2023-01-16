@@ -15,7 +15,7 @@ function Following() {
 
   const notify = (user) =>
     toast.info(` unfollowed ${user.name}`, {
-      position: "top-center",
+      position: "bottom-right",
       autoClose: 2000,
       hideProgressBar: true,
       closeOnClick: false,

@@ -16,7 +16,7 @@ function AdminNavbar({login}) {
   const following = useSelector((state) => state.following);
   return (
     <div>
-      <nav className="flex w-full bg-[#f1eeee] h-20 rounded-xl py-5 z-10 fixed item-center  justify-between px-10">
+      <nav className="flex w-full bg-[#f1eeee] h-24 py-7 z-10 fixed item-center  justify-between px-10">
         <div className=" flex text-[#00000]">
           <Link to="/home">
             <img src={logo} width="180px" alt="logo" />
